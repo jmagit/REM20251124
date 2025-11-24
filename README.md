@@ -57,7 +57,7 @@
 
 #### Maven
 
-    docker run --rm -it -v .:/local -v maven-repository:/root/.m2 maven:3.8.6-eclipse-temurin-8 bash
+    docker run --rm -it -p 50099:1099 -v .:/local --workdir /local -v maven-repository:/root/.m2 maven:3.8.6-eclipse-temurin-8 bash
 
 #### SonarQube Scanner
 
