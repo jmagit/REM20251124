@@ -75,3 +75,6 @@ libraries/**
 *.log
 *.log.*
 *.gz
+
+*.jtl
+
