@@ -75,6 +75,5 @@ libraries/**
 *.log
 *.log.*
 *.gz
-
 *.jtl
-
+out/**
