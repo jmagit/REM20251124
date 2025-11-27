@@ -61,7 +61,7 @@
 
 #### SonarQube Scanner
 
-    docker run --rm -v .:/usr/src -e SONAR_HOST_URL="http://host.docker.internal:9000"  sonarsource/sonar-scanner-cli
+    docker run --rm -it -v .:/usr/src -e SONAR_HOST_URL="http://host.docker.internal:9000"  sonarsource/sonar-scanner-cli bash
 
 ## Herramientas de monitorización, perfilado y pruebas
 
