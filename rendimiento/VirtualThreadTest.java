@@ -13,7 +13,7 @@ public class VirtualThreadTest {
 			var name = Thread.currentThread().isVirtual() ? "Virtual" : Thread.currentThread().getName();
 			System.out.println("Hilo %s - Tarea %d esperando...".formatted(name, number));
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				System.out.println("Hilo %s - Tarea %d cancelada.".formatted(name, number));
 				return -1;
