@@ -22,7 +22,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-@BenchmarkMode(Mode.AverageTime)
+@BenchmarkMode(Mode.All)
 @Warmup(timeUnit = TimeUnit.SECONDS, time = 1, iterations = 2)
 @Measurement(timeUnit = TimeUnit.SECONDS, time = 1, iterations = 5)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
@@ -30,7 +30,7 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
 @State(Scope.Benchmark)
 public class ExcepcionesBenchmark {
 	static final int ELEMENTOS = 100;
-	
+
 	@State(Scope.Thread)
 	public static class ArrayState {
 		Optional<Integer>[] elementos;
@@ -42,7 +42,7 @@ public class ExcepcionesBenchmark {
 				elementos[i] = Optional.ofNullable(i % 7 == 0 ? null : i * 2);
 		}
 	}
-	
+
 	@State(Scope.Thread)
 	public static class ListState {
 		List<Optional<Integer>> elementos;
@@ -62,8 +62,8 @@ public class ExcepcionesBenchmark {
 	@Benchmark
 	public int withArray(ArrayState estado) {
 		var result = 0;
-		for(var i : estado.elementos)
-			if(i.isPresent())
+		for (var i : estado.elementos)
+			if (i.isPresent())
 				result += i.get();
 		return result;
 	}
@@ -71,7 +71,7 @@ public class ExcepcionesBenchmark {
 	@Benchmark
 	public int withArrayException(ArrayState estado) {
 		var result = 0;
-		for(var i : estado.elementos)
+		for (var i : estado.elementos)
 			try {
 				result += i.get();
 			} catch (NoSuchElementException e) {
@@ -82,9 +82,8 @@ public class ExcepcionesBenchmark {
 	@Benchmark
 	public int withList(ListState estado) {
 		var result = 0;
-		for(var i : estado.elementos)
-			if(i.isPresent())
-				result += i.get();
+		for (var i : estado.elementos)
+			result += i.orElse(0);
 		return result;
 	}
 

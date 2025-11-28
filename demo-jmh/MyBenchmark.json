@@ -1,0 +1,137 @@
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-3491
+# VM invoker: C:\Program Files\Java\jdk-25\bin\java.exe
+# VM options: --sun-misc-unsafe-memory-access=allow
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.ExcepcionesBenchmark.baseline
+
+# Run progress: 0,00% complete, ETA 00:00:28
+# Fork: 1 of 1
+# Warmup Iteration   1: 0,589 ns/op
+# Warmup Iteration   2: 0,570 ns/op
+Iteration   1: 0,567 ns/op
+Iteration   2: 0,562 ns/op
+Iteration   3: 0,596 ns/op
+Iteration   4: 0,551 ns/op
+Iteration   5: 0,588 ns/op
+
+
+Result "com.example.ExcepcionesBenchmark.baseline":
+  0,573 ±(99.9%) 0,071 ns/op [Average]
+  (min, avg, max) = (0,551, 0,573, 0,596), stdev = 0,018
+  CI (99.9%): [0,502, 0,644] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-3491
+# VM invoker: C:\Program Files\Java\jdk-25\bin\java.exe
+# VM options: --sun-misc-unsafe-memory-access=allow
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.ExcepcionesBenchmark.withArray
+
+# Run progress: 25,00% complete, ETA 00:00:22
+# Fork: 1 of 1
+# Warmup Iteration   1: 90,966 ns/op
+# Warmup Iteration   2: 108,655 ns/op
+Iteration   1: 89,459 ns/op
+Iteration   2: 77,086 ns/op
+Iteration   3: 84,403 ns/op
+Iteration   4: 78,553 ns/op
+Iteration   5: 82,864 ns/op
+
+
+Result "com.example.ExcepcionesBenchmark.withArray":
+  82,473 ±(99.9%) 18,969 ns/op [Average]
+  (min, avg, max) = (77,086, 82,473, 89,459), stdev = 4,926
+  CI (99.9%): [63,505, 101,442] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-3491
+# VM invoker: C:\Program Files\Java\jdk-25\bin\java.exe
+# VM options: --sun-misc-unsafe-memory-access=allow
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.ExcepcionesBenchmark.withArrayException
+
+# Run progress: 50,00% complete, ETA 00:00:15
+# Fork: 1 of 1
+# Warmup Iteration   1: 25479,685 ns/op
+# Warmup Iteration   2: 25687,901 ns/op
+Iteration   1: 25499,075 ns/op
+Iteration   2: 28473,871 ns/op
+Iteration   3: 26456,000 ns/op
+Iteration   4: 25450,807 ns/op
+Iteration   5: 25766,698 ns/op
+
+
+Result "com.example.ExcepcionesBenchmark.withArrayException":
+  26329,290 ±(99.9%) 4867,974 ns/op [Average]
+  (min, avg, max) = (25450,807, 26329,290, 28473,871), stdev = 1264,197
+  CI (99.9%): [21461,316, 31197,265] (assumes normal distribution)
+
+
+# JMH version: 1.37
+# VM version: JDK 25, Java HotSpot(TM) 64-Bit Server VM, 25+37-LTS-3491
+# VM invoker: C:\Program Files\Java\jdk-25\bin\java.exe
+# VM options: --sun-misc-unsafe-memory-access=allow
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 5 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Average time, time/op
+# Benchmark: com.example.ExcepcionesBenchmark.withList
+
+# Run progress: 75,00% complete, ETA 00:00:07
+# Fork: 1 of 1
+# Warmup Iteration   1: 183,154 ns/op
+# Warmup Iteration   2: 144,105 ns/op
+Iteration   1: 143,779 ns/op
+Iteration   2: 149,088 ns/op
+Iteration   3: 151,321 ns/op
+Iteration   4: 166,915 ns/op
+Iteration   5: 150,250 ns/op
+
+
+Result "com.example.ExcepcionesBenchmark.withList":
+  152,271 ±(99.9%) 33,442 ns/op [Average]
+  (min, avg, max) = (143,779, 152,271, 166,915), stdev = 8,685
+  CI (99.9%): [118,829, 185,712] (assumes normal distribution)
+
+
+# Run complete. Total time: 00:00:30
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                                Mode  Cnt      Score      Error  Units
+ExcepcionesBenchmark.baseline            avgt    5      0,573 ±    0,071  ns/op
+ExcepcionesBenchmark.withArray           avgt    5     82,473 ±   18,969  ns/op
+ExcepcionesBenchmark.withArrayException  avgt    5  26329,290 ± 4867,974  ns/op
+ExcepcionesBenchmark.withList            avgt    5    152,271 ±   33,442  ns/op
+
+Benchmark result is saved to jmh-result.json
