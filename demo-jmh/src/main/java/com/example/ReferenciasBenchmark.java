@@ -73,6 +73,15 @@ public class ReferenciasBenchmark {
 		return result;
 	}
 
+//	@Benchmark
+//	public int withListArray(ListState estado) {
+//		var result = 0;
+//		int[] lst = estado.elementos.toArray(Integer.TYPE);
+//		for(int i : estado.elementos)
+//			result += i;
+//		return result;
+//	}
+
 	public static void main(String[] args) throws RunnerException {
 		Options opt = new OptionsBuilder().include(ReferenciasBenchmark.class.getSimpleName()).forks(1).build();
 
