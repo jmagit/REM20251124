@@ -83,7 +83,8 @@ public class ExcepcionesBenchmark {
 	public int withList(ListState estado) {
 		var result = 0;
 		for(var i : estado.elementos)
-			result += i.get();
+			if(i.isPresent())
+				result += i.get();
 		return result;
 	}
 
