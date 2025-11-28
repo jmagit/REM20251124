@@ -12,7 +12,7 @@ target/**
 bin/**
 tmp/**
 tmp/**/*
-target/**/*
+**/target/**/*
 *.tmp
 *.bak
 *.swp
@@ -65,10 +65,10 @@ build/
 sonar-scan.cmd
 
 ### VS Code ###
-kk/**
-libraries/**
-*.pptx
 **/node_modules/
+libraries/**
+kk/**
+*.pptx
 
 # Performance Testing
 *.hprof
