@@ -2,6 +2,7 @@ package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 
@@ -38,7 +39,7 @@ public class ExcepcionesBenchmark {
 		public void prepare() {
 			elementos = new Optional[ELEMENTOS];
 			for (int i = 0; i < elementos.length; i++)
-				elementos[i] = Optional.of(i * 2);
+				elementos[i] = Optional.ofNullable(i % 7 == 0 ? null : i * 2);
 		}
 	}
 	
@@ -50,7 +51,7 @@ public class ExcepcionesBenchmark {
 		public void prepare() {
 			elementos = new ArrayList<>();
 			for (int i = 0; i < ELEMENTOS; i++)
-				elementos.add(Optional.of(i * 2));
+				elementos.add(Optional.ofNullable(i % 7 == 0 ? null : i * 2));
 		}
 	}
 
@@ -62,7 +63,19 @@ public class ExcepcionesBenchmark {
 	public int withArray(ArrayState estado) {
 		var result = 0;
 		for(var i : estado.elementos)
-			result += i.get();
+			if(i.isPresent())
+				result += i.get();
+		return result;
+	}
+
+	@Benchmark
+	public int withArrayException(ArrayState estado) {
+		var result = 0;
+		for(var i : estado.elementos)
+			try {
+				result += i.get();
+			} catch (NoSuchElementException e) {
+			}
 		return result;
 	}
 
